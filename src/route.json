@@ -1,0 +1,40 @@
+{
+    "wfm2": {
+        "get": {
+            "client": {
+                "url": "/wfm2/pipelines",
+                "requiredParams": {
+                    "query": ["a", "b", "c"]
+                },
+                "express": {
+                    "controllers": ["controller.hello","controller.sayHello"]
+                }
+            },
+            "server": "/wfm2/pipelines/abcdef/:x/:y"
+        },
+        "post":{
+            "client": {
+                "url": "/wfm2/pipelines/:v/helloworld/:w",
+                "requiredParams": {
+                    "query": ["a", "b", "c"]
+                },
+                "express": {
+                    "controllers": ["controller.returnParams"]
+                }
+            },
+            "server": "/wfm2/pipelines/abcdef/:abc/:xyz"
+        }
+    },
+    "wfm3" : {
+        "post" : {
+            "server" : "/wfm/workspace/:workspace_id/workflow/:workflow_id/trigger/run_selected",
+            "client": "/wfm/workspace/:workspace_id/workflow/:workflow_id/trigger/run_selected"
+        }
+    },
+    "wfm4" : {
+        "put" : {
+            "server" : "/wfm/workspace/:workspace_id/workflow/:workflow_id/trigger/dosometing",
+            "client": "/wfm/workspace/:workspace_id/workflow/:workflow_id/trigger/run_selected"
+        }
+    }
+}
