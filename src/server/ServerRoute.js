@@ -1,3 +1,8 @@
+/**
+ *  @author {Ashish Kumar}
+ *  @class {ServerRoute}
+ *  @extends {Route}
+ */
 import Route from "./../Manager/Route";
 
 class ServerRoute extends Route {

@@ -1,3 +1,12 @@
+/**
+ *  @author {Ashish Kumar}
+ *  @class {ServerRouteManager}
+ *  @extends {RouteManager}
+ *  @constructor {<nodeServer>, <configObject>}
+ *  @configObject = {
+ *      Route: <Base Route Class>,
+ *  }
+ */
 import RouteManager from "./../Manager/RouteManager";
 import ServerRoute from "./ServerRoute";
 
@@ -23,8 +32,6 @@ class ServerRouteManager extends RouteManager {
             /**
              *  Setting up express.Router() in the each serverRoute class Instance
              */
-            console.log(_this.manager.app);
-            _this.manager.Router = _this.manager.app.Router();
             const types = Object.keys(route);
             for (let i = 0; i < types.length; i++) {
                 const type = types[i]
@@ -44,7 +51,7 @@ class ServerRouteManager extends RouteManager {
                                     throw `Controller ${fn} as ${el} defined for ${url} not found.`;
                                 }
                             });
-                            _this.manager.Router[type](`${_this.manager.urlPrefix}${url}`, middlewares);
+                            _this.manager.app[type](`${_this.manager.urlPrefix}${url}`, middlewares);
                         } else {
                             throw `[x] No controller found for ${url}`;
                         }
